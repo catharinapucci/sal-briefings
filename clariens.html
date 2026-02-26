@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAL Briefing - Clariens</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+            background: #fafafa;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 48px;
+            font-weight: 900;
+            color: #FF4757;
+            letter-spacing: -2px;
+        }
+        .header {
+            background: white;
+            border-left: 5px solid #FF4757;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: #FF4757;
+            margin: 0 0 10px 0;
+            font-size: 32px;
+        }
+        .header p {
+            margin: 5px 0;
+            color: #666;
+            font-size: 14px;
+        }
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .section p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        h2 {
+            color: #FF4757;
+            border-bottom: 2px solid #FF4757;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 24px;
+        }
+        h3 {
+            color: #FF4757;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        h4 {
+            color: #34495e;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .subsection {
+            margin-left: 20px;
+            margin-top: 12px;
+        }
+        .subsection ul {
+            margin: 6px 0;
+        }
+        .subsection li {
+            padding: 3px 0;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 8px 0;
+        }
+        li {
+            padding: 4px 0;
+            border-bottom: 1px solid #ecf0f1;
+            line-height: 1.5;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        strong {
+            color: #2c3e50;
+        }
+        .pain-box {
+            background: #fff5f5;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #FF4757;
+        }
+        .pain-box h4 {
+            margin: 0 0 6px 0;
+            color: #FF4757;
+        }
+        .pain-box ul {
+            margin: 4px 0;
+        }
+        .pain-box li {
+            padding: 3px 0;
+        }
+        .next-steps {
+            background: #e8f5e9;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #4caf50;
+        }
+        .next-steps h2 {
+            border-bottom: 2px solid #4caf50;
+            color: #4caf50;
+        }
+        .next-steps ul {
+            margin: 8px 0;
+        }
+        .next-steps li {
+            padding: 4px 0;
+            line-height: 1.5;
+        }
+        .next-steps p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        .next-steps div {
+            margin-top: 8px;
+        }
+        .next-steps strong {
+            display: inline;
+        }
+        .news-item {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 8px 0;
+            border-left: 3px solid #FF4757;
+        }
+        .news-item a {
+            color: #FF4757;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .news-item a:hover {
+            text-decoration: underline;
+        }
+        .hierarchy {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 8px 0;
+        }
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .org-level {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .org-box {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px 20px;
+            min-width: 180px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .org-box:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .org-box .title {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        .org-box .name {
+            font-size: 13px;
+            color: #666;
+            font-style: italic;
+        }
+        .org-connector {
+            width: 2px;
+            height: 20px;
+            background: #e0e0e0;
+            margin: 0 auto;
+        }
+        .org-badge {
+            display: inline-block;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            margin: 5px 2px 0 2px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .badge-mql {
+            background: #e3f2fd;
+            color: #1976d2;
+            border: 1px solid #1976d2;
+        }
+        .badge-sal {
+            background: #e8f5e9;
+            color: #388e3c;
+            border: 1px solid #388e3c;
+        }
+        .org-legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+        .legend-badge {
+            display: inline-block;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .question-box {
+            background: #fff9f0;
+            border-left: 4px solid #FF4757;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .question-box h4 {
+            color: #FF4757;
+            margin: 0 0 6px 0;
+            font-size: 16px;
+        }
+        .question-box ul {
+            margin: 0;
+            padding-left: 12px;
+            list-style: disc;
+        }
+        .question-box li {
+            padding: 2px 0;
+            border-bottom: none;
+            color: #555;
+            line-height: 1.4;
+        }
+        .question-box li strong {
+            display: inline;
+        }
+        .empty-field {
+            color: #999;
+            font-style: italic;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ecf0f1;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        comp
+    </div>
+
+    <div class="header">
+        <h1>SAL Briefing: Comp <> Clariens</h1>
+        <p><strong>Objetivo:</strong> Garantir que o SAL comece com clareza, não do zero</p>
+        <p><strong>Owner:</strong> BDR (entrega) → Sales Exec (valida)</p>
+    </div>
+
+    <div class="section">
+        <h2>🏢 1. Contexto Geral Empresa</h2>
+
+        <ul>
+            <li><strong>Segmento de Mercado:</strong> Educação Superior - Medicina</li>
+            <li><strong>Modelo de Negócio:</strong> Aquisição e operação de faculdades que tenham medicina como principal curso (investida do Mubadala Capital)</li>
+        </ul>
+
+        <div class="subsection">
+            <h3>1.1 Dados Gerais Lead</h3>
+            <ul>
+                <li><strong>Quantidade de Colaboradores:</strong> ~120 colaboradores na holding + operação distribuída nas 5 faculdades (Salvador-BA, Itumbiara-GO, Eunápolis-BA, Pouso Alegre-MG, Araguari-MG)</li>
+                <li><strong>Modelo Contratação:</strong> CLT (exceto 4 estatutários: CEO, CFO, Diretor M&A, Presidente)</li>
+                <li><strong>Escritório/s:</strong> São Paulo (50% holding) e Salvador (50% holding) + 5 unidades nas faculdades</li>
+                <li><strong>Modelo de Trabalho:</strong> Híbrido - 3 dias escritório, 2 dias home (para holding)</li>
+                <li><strong>Source do Card:</strong> Recomendação (Debra - Sky One/Advent)</li>
+            </ul>
+        </div>
+
+        <div class="subsection">
+            <h3>1.2 Perguntas ICP</h3>
+            <ul>
+                <li><strong>Companhia Pretende Contratar:</strong> Sim, crescimento de ~10-15% headcount na holding. Tese de crescimento por aquisição: mínimo 2 M&As planejados para 2026 (um menor, um maior)</li>
+                <li><strong>Tem Vaga Aberta/Pretende Abrir em RH:</strong> Sim, 2 vagas aprovadas no orçamento 2026: (1) Business Partner em Salvador para holding, (2) Recrutador em São Paulo</li>
+                <li><strong>Tem Time Tech (Eng/Dev):</strong> Sim, ~10 pessoas em dados e sistemas (não desenvolvedores, mas analistas de dados e suporte a sistemas como Proteus, portal do aluno, ENAMédia, etc.)</li>
+                <li><strong>Turnover Ano:</strong> Baixo em geral ("a gente não tem rotatividade"), mas alto em tech/dados (pessoas começam e em 3 meses recebem outras propostas e saem)</li>
+            </ul>
+        </div>
+
+        <div class="subsection">
+            <h3>1.3 Estrutura RH</h3>
+
+            <h4>Cargos:</h4>
+
+            <div class="org-legend">
+                <div class="legend-item">
+                    <span class="legend-badge badge-mql">MQL</span>
+                    <span>Participou do MQL</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-badge badge-sal">SAL</span>
+                    <span>Estará no SAL</span>
+                </div>
+            </div>
+
+            <div class="org-chart">
+                <div class="org-level">
+                    <div class="org-box">
+                        <div class="title">Diretora de Gente e Gestão</div>
+                        <div class="name">Roberta Bomfim</div>
+                        <div>
+                            <span class="org-badge badge-mql">MQL</span>
+                            <span class="org-badge badge-sal">SAL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="org-connector"></div>
+                <div class="org-level">
+                    <div class="org-box">
+                        <div class="title">Gerente de BP</div>
+                        <div class="name">São Paulo</div>
+                    </div>
+                    <div class="org-box">
+                        <div class="title">Analista BP</div>
+                        <div class="name">Salvador (vaga nova)</div>
+                    </div>
+                    <div class="org-box">
+                        <div class="title">Recrutador</div>
+                        <div class="name">São Paulo (vaga nova)</div>
+                    </div>
+                </div>
+            </div>
+
+            <h4>Stakeholders e Cargos:</h4>
+            <ul>
+                <li><strong>Roberta Bomfim</strong> - Diretora de Gente e Gestão (day one, entre os early joiners com discrepância salarial)</li>
+                <li><strong>Gerente de BP</strong> - São Paulo (trabalha junto com Roberta em temas de remuneração)</li>
+                <li><strong>C-Level</strong> - CEO, CFO, Diretor M&A (não identificados nominalmente, mas são decision makers para orçamento)</li>
+                <li><strong>Mubadala Capital</strong> - Fundo investidor muito presente, alto nível de controle e detalhamento (possível veto em decisões estratégicas)</li>
+            </ul>
+
+            <h4>Subdivisões RH:</h4>
+            <ul>
+                <li>Business Partnership (Gerente BP em SP + Analista BP em Salvador - nova vaga)</li>
+                <li>Recrutamento e Seleção (nova vaga em SP + terceiro por projeto anteriormente)</li>
+                <li>Remuneração (atualmente feito por Roberta + Gerente BP sem dedicação exclusiva)</li>
+                <li>Performance Management (ciclo de desempenho "super completo e maduro" já implementado)</li>
+            </ul>
+        </div>
+
+        <div class="subsection">
+            <h3>1.4 Principais Notícias</h3>
+            <div class="news-item">
+                <strong>Comp - Series A:</strong> Anúncio de captação de R$ 100 milhões com Cosla Ventures (primeira investida na América do Sul, investidores do ChatGPT/OpenAI, Airbnb)
+            </div>
+            <div class="news-item">
+                <strong>Clariens - Certificação Mental Health:</strong> Recebeu certificação Great People Mental Health 2025, validando práticas de segurança psicológica, qualidade de relacionamentos e cuidado
+            </div>
+            <div class="news-item">
+                <strong>Clariens - Expansão de Campus:</strong> Inauguração de novo campus da Faculdade Zarns Pouso Alegre, com CEO Thiago Sayão reforçando compromisso de investir continuamente em educação superior em saúde
+            </div>
+            <div class="news-item">
+                <strong>Clariens - Programa Impulso Liderança:</strong> Conclusão do primeiro programa de desenvolvimento de lideranças para fortalecer competências de gestão nas unidades
+            </div>
+            <div class="news-item">
+                <strong>Clariens - IntegraClariens2026:</strong> Encontro de liderança para estabelecer estratégia 2026 e discutir impacto da IA na gestão
+            </div>
+        </div>
+
+        <div class="subsection">
+            <h3>1.5 Histórico Anterior com a Comp</h3>
+            <div>Primeira interação. Clariens foi recomendada à Comp por Debra (Sky One/Advent), que teve experiência positiva com trabalho estruturado da Comp para validar competitividade salarial após aquisição pelo fundo.</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🔥 2. Principais Dores</h2>
+
+        <div class="pain-box">
+            <h4>Pain #1: Discrepância salarial entre early joiners e contratações recentes do mercado</h4>
+            <ul>
+                <li><strong>Descrição:</strong> 4 dos 9 N-1s (nível de diretoria abaixo do C-Level) estão significativamente abaixo do resto do grupo que veio do mercado "à peso de ouro". Inclui Roberta (RH) e outros diretores que estão desde o day one.</li>
+                <li><strong>Onde aparece:</strong> Nível de diretoria/liderança sênior da holding</li>
+                <li><strong>Impacto percebido:</strong> Risco de perder talentos-chave que conhecem o negócio desde o início, têm alto desempenho e são importantes para operação. Dificuldade em fazer ajustes de forma estruturada ("não cabe a mim decidir, mas preciso trazer algo estruturado").</li>
+            </ul>
+        </div>
+
+        <div class="pain-box">
+            <h4>Pain #2: Alta rotatividade e dificuldade de retenção em Tech/Dados</h4>
+            <ul>
+                <li><strong>Descrição:</strong> Pessoas do time de TI (dados e sistemas) começam na empresa e em 3 meses recebem outras propostas e saem. "É difícil segurar" tanto pelo regime de trabalho quanto pelo financeiro.</li>
+                <li><strong>Onde aparece:</strong> Time de tecnologia (~10 pessoas em dados e sistemas, principalmente back-office de sistemas que suportam o negócio)</li>
+                <li><strong>Impacto percebido:</strong> Perda contínua de talentos tech, dificuldade de reter conhecimento do negócio (peculiaridades da educação médica, regulação MEC, incentivos governamentais FIES/ProUni, etc.). Prejuízo na capacidade de gerar insights de dados acadêmicos e operacionais.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>💎 3. Hipótese de Valor Inicial</h2>
+
+        <h4>Que tipo de problema de People / Rewards isso parece ser?</h4>
+        <p><strong>Pay equity & internal compression</strong> + <strong>Compensation governance & benchmarking</strong></p>
+
+        <h4>Onde acreditamos que está o maior impacto?</h4>
+        <ul>
+            <li>Estruturar faixas salariais com metodologia clara (work levels) para criar governança e transparência nas decisões de remuneração</li>
+            <li>Resolver compression dos early joiners (especialmente diretoria) mantendo competitividade para novas contratações</li>
+            <li>Criar framework para decisões de mérito e enquadramentos baseado em dados e mercado, não apenas "feeling"</li>
+            <li>Estabelecer estratégia de posicionamento competitivo diferenciada por área (tech/dados mais agressivo vs administrativo mediana vs operação premium)</li>
+            <li>Desenvolver plano de curto, médio e longo prazo para corrigir discrepâncias sem comprometer orçamento</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📋 4. O Que Sabemos</h2>
+        <ul>
+            <li><strong>Estrutura / níveis:</strong> Descrição de cargos para todos os cargos da companhia (holding + unidades) - requisito da certificação ISO 37001 (anti-suborno/compliance). Níveis criados internamente (1, 2, 3 / Júnior, Pleno, Sênior) baseados em complexidade e responsabilidade, mas sem metodologia formal ou validação de mercado.</li>
+            <li><strong>Pay decisions:</strong> Decisões baseadas em "feeling" e benchmarking informal. Roberta e Gerente BP fazem propostas usando pesquisas de mercado públicas disponíveis, mas "sabem porque sabem, não por ciência". Dificuldade em justificar ajustes ou enquadramentos sem metodologia estruturada.</li>
+            <li><strong>Benchmarking:</strong> Uso de pesquisas de mercado públicas/gratuitas. Para operação (diretores de unidade, coordenadores de medicina): comparação com concorrentes diretos do segmento educação (Afia, Anima, Edux, Cruzeiro). Para administrativo: mercado geral cross-industry ("contador é contador, contas a pagar é contas a pagar").</li>
+            <li><strong>Posicionamento Estratégico:</strong> Acreditam estar competitivos em administrativo (candidatos aceitam propostas e ficam, baixo movimento de saída). Para operação: pagam melhor que concorrentes ("o cara vem sem olhar pro lado" quando vem de grandes grupos que estão juniorizando gestão). Preocupação maior com tech/dados, onde sentem que não são competitivos e perdem pessoas em 3 meses.</li>
+            <li><strong>Variável / incentivos:</strong> PLR para holding (C-Level: tags diferenciadas, Coordenação: 2 salários, restante do time: 1 salário). Bônus para diretor de unidade e coordenadores de medicina nas unidades (segue mesma regra do PLR da holding).</li>
+            <li><strong>Ferramentas / vendors:</strong> <span class="empty-field">[Não mencionado - aparentemente não usam ferramenta ou consultoria específica atualmente]</span></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>❓ 5. Perguntas Para SAL</h2>
+
+        <div class="question-box">
+            <h4>🔍 O que ainda não sabemos e é crítico?</h4>
+            <ul>
+                <li>Quantos cargos únicos existem na estrutura atual? (Roberta vai buscar essa informação)</li>
+                <li>Qual o budget disponível/aprovado para corrigir compression dos early joiners? Já está no orçamento 2026 ou precisa ser pleiteado?</li>
+                <li>Qual o timeline esperado/desejado para implementação das mudanças (estrutura + ajustes salariais)?</li>
+                <li>Quem do C-Level (CEO, CFO, Diretor M&A) precisa estar envolvido na decisão? Qual o nível de autonomia de Roberta vs aprovação necessária?</li>
+                <li>Qual o nível de envolvimento/aprovação necessário do Mubadala Capital em decisões estratégicas de remuneração?</li>
+                <li>Qual a magnitude exata das discrepâncias salariais dos early joiners (% abaixo do mercado ou do grupo de pares internos)?</li>
+            </ul>
+        </div>
+
+        <div class="question-box">
+            <h4>✅ O que precisa ser validado no deep discovery?</h4>
+            <ul>
+                <li>Validar se a estratégia de posicionamento competitivo percebida está correta (administrativo OK, operação premium, tech não competitivo) via benchmarking estruturado</li>
+                <li>Validar quais iniciativas de retenção não-monetárias já estão sendo usadas (treinamentos, desenvolvimento, promoções) e sua efetividade</li>
+                <li>Entender se há budget e apetite para investir em solução contínua (Comp as a Service) vs projeto pontual de estruturação</li>
+                <li>Confirmar expectativa realista de crescimento (2 M&As confirmados? Crescimento 10-15% headcount?) e impacto na estratégia de comp</li>
+                <li>Validar se há apetite para revisitar estratégia de variável/PLR (parece simples, sem diferenciação por performance) ou foco apenas em fixo</li>
+                <li>Entender se a maturidade do ciclo de performance pode ser usada como base para decisões de mérito diferenciadas</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="next-steps">
+        <h2>🎯 6. Próximos Passos Recomendados</h2>
+        <ul>
+            <li><strong>Próxima call:</strong> SAL agendado para 26/02/2026 às 17h (5pm) - Discovery & Deepening</li>
+            <li><strong>Participantes confirmados:</strong> Roberta Bomfim (Diretora de Gente e Gestão)</li>
+            <li><strong>Participantes a confirmar:</strong> C-Level (CEO, CFO) se Roberta avaliar necessário para decisão</li>
+        </ul>
+        <div>
+            <p><strong>☑ Recomendação:</strong> SAL Discovery & Deepening</p>
+            <p><strong>Justificativa:</strong> Opportunity bem qualificada com dores claras (compression + governança + tech retention) e budget disponível ("tenho linha de serviços" + "passo o livro de ouro se necessário"). Roberta está altamente engajada e veio por recomendação forte (Debra/Sky One). No entanto, precisamos de mais discovery para:</p>
+            <ul>
+                <li>Quantificar as discrepâncias e entender dimensão do problema</li>
+                <li>Validar budget disponível e timeline para implementação</li>
+                <li>Confirmar envolvimento/aprovação necessário do C-Level e Mubadala</li>
+                <li>Entender a fundo a estrutura atual (número de cargos, níveis) para dimensionar escopo</li>
+                <li>Explorar se há apetite para solução contínua (CaaS) vs projeto pontual</li>
+            </ul>
+            <p><strong>Foco do SAL:</strong> Fazer diagnóstico detalhado, apresentar metodologia de work levels como solução para governança + compression, trazer cases de empresas similares (educação, PE-backed) e explorar estratégia diferenciada por área (tech premium).</p>
+        </div>
+    </div>
+</body>
+</html>
