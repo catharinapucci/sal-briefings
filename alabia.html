@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAL Briefing - Alabia</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+            background: #fafafa;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 48px;
+            font-weight: 900;
+            color: #FF4757;
+            letter-spacing: -2px;
+        }
+        .header {
+            background: white;
+            border-left: 5px solid #FF4757;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: #FF4757;
+            margin: 0 0 10px 0;
+            font-size: 32px;
+        }
+        .header p {
+            margin: 5px 0;
+            color: #666;
+            font-size: 14px;
+        }
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .section p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        h2 {
+            color: #FF4757;
+            border-bottom: 2px solid #FF4757;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 24px;
+        }
+        h3 {
+            color: #FF4757;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        h4 {
+            color: #34495e;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .subsection {
+            margin-left: 20px;
+            margin-top: 12px;
+        }
+        .subsection ul {
+            margin: 6px 0;
+        }
+        .subsection li {
+            padding: 3px 0;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 8px 0;
+        }
+        li {
+            padding: 4px 0;
+            border-bottom: 1px solid #ecf0f1;
+            line-height: 1.5;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        strong {
+            color: #2c3e50;
+        }
+        .pain-box {
+            background: #fff5f5;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #FF4757;
+        }
+        .pain-box h4 {
+            margin: 0 0 6px 0;
+            color: #FF4757;
+        }
+        .pain-box ul {
+            margin: 4px 0;
+        }
+        .pain-box li {
+            padding: 3px 0;
+        }
+        .next-steps {
+            background: #e8f5e9;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #4caf50;
+        }
+        .next-steps h2 {
+            border-bottom: 2px solid #4caf50;
+            color: #4caf50;
+        }
+        .next-steps ul {
+            margin: 8px 0;
+        }
+        .next-steps li {
+            padding: 4px 0;
+            line-height: 1.5;
+        }
+        .next-steps p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        .next-steps div {
+            margin-top: 8px;
+        }
+        .next-steps strong {
+            display: inline;
+        }
+        .news-item {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 8px 0;
+            border-left: 3px solid #FF4757;
+        }
+        .news-item a {
+            color: #FF4757;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .news-item a:hover {
+            text-decoration: underline;
+        }
+        .hierarchy {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 8px 0;
+        }
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .org-level {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .org-box {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px 20px;
+            min-width: 180px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .org-box:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .org-box .title {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        .org-box .name {
+            font-size: 13px;
+            color: #666;
+            font-style: italic;
+        }
+        .org-connector {
+            width: 2px;
+            height: 20px;
+            background: #e0e0e0;
+            margin: 0 auto;
+        }
+        .org-badge {
+            display: inline-block;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            margin: 5px 2px 0 2px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .badge-mql {
+            background: #e3f2fd;
+            color: #1976d2;
+            border: 1px solid #1976d2;
+        }
+        .badge-sal {
+            background: #e8f5e9;
+            color: #388e3c;
+            border: 1px solid #388e3c;
+        }
+        .org-legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+        .legend-badge {
+            display: inline-block;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .question-box {
+            background: #fff9f0;
+            border-left: 4px solid #FF4757;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .question-box h4 {
+            color: #FF4757;
+            margin: 0 0 6px 0;
+            font-size: 16px;
+        }
+        .question-box ul {
+            margin: 0;
+            padding-left: 12px;
+            list-style: disc;
+        }
+        .question-box li {
+            padding: 2px 0;
+            border-bottom: none;
+            color: #555;
+            line-height: 1.4;
+        }
+        .question-box li strong {
+            display: inline;
+        }
+        .empty-field {
+            color: #999;
+            font-style: italic;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ecf0f1;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        comp
+    </div>
+
+    <div class="header">
+        <h1>SAL Briefing: Comp <> Alabia</h1>
+        <p><strong>Objetivo:</strong> Garantir que o SAL comece com clareza, não do zero</p>
+        <p><strong>Owner:</strong> BDR (entrega) → Sales Exec (valida)</p>
+    </div>
+
+    <div class="section">
+        <h2>🏢 1. Contexto Geral Empresa</h2>
+
+        <ul>
+            <li><strong>Segmento de Mercado:</strong> Tecnologia - Robótica e IA para Serviços</li>
+            <li><strong>Modelo de Negócio:</strong> B2B - Serviços de automação com robôs e IA</li>
+        </ul>
+
+        <div class="subsection">
+            <h3>1.1 Dados Gerais Lead</h3>
+            <ul>
+                <li><strong>Quantidade de Colaboradores:</strong> 300 colaboradores</li>
+                <li><strong>Modelo Contratação:</strong> 90% CLT, 10% PJ</li>
+                <li><strong>Escritório/s:</strong> São Paulo e Florianópolis + bases em clientes</li>
+                <li><strong>Modelo de Trabalho:</strong> Híbrido</li>
+                <li><strong>Source do Card:</strong> [Não mencionado]</li>
+            </ul>
+        </div>
+
+        <div class="subsection">
+            <h3>1.2 Perguntas ICP</h3>
+            <ul>
+                <li><strong>Companhia Pretende Contratar:</strong> Crescimento planejado de 233% - meta de 1000 funcionários até 2026</li>
+                <li><strong>Tem Vaga Aberta/Pretende Abrir em RH:</strong> Não há vagas abertas em RH atualmente</li>
+                <li><strong>Tem Time Tech (Eng/Dev):</strong> Sim, 10-15% do headcount (~30-45 pessoas)</li>
+                <li><strong>Turnover Ano:</strong> [Não mencionado]</li>
+            </ul>
+        </div>
+
+        <div class="subsection">
+            <h3>1.3 Estrutura RH</h3>
+
+            <h4>Cargos:</h4>
+
+            <div class="org-legend">
+                <div class="legend-item">
+                    <span class="legend-badge badge-mql">MQL</span>
+                    <span>Participou do MQL</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-badge badge-sal">SAL</span>
+                    <span>Estará no SAL</span>
+                </div>
+            </div>
+
+            <div class='org-legend'><div class='legend-item'><span class='legend-badge badge-mql'>MQL</span><span>Participou do MQL</span></div><div class='legend-item'><span class='legend-badge badge-sal'>SAL</span><span>Estará no SAL</span></div></div><div class='org-chart'><div class='org-level'><div class='org-box'><div class='title'>CEO</div><div class='name'>Paulo Teixeira</div><span class='org-badge badge-mql'>MQL</span><span class='org-badge badge-sal'>SAL</span></div></div><div class='org-connector'></div><div class='org-level'><div class='org-box'><div class='title'>RH Generalista</div><div class='name'>Red (ex-Big4)</div></div></div></div>
+
+            <h4>Stakeholders e Cargos:</h4>
+            <ul>
+                <li><strong>Paulo Teixeira</strong> - CEO - Decision maker, participou do MQL</li><li><strong>Red</strong> - RH Generalista - Ex-Big4, advogada, reporta ao CEO</li>
+            </ul>
+
+            <h4>Subdivisões RH:</h4>
+            <ul>
+                <li>RH Generalista - Atua como bombeira, lida com escritório advocatício e BPO</li>
+            </ul>
+        </div>
+
+        <div class="subsection">
+            <h3>1.4 Principais Notícias</h3>
+            [Não mencionado]
+        </div>
+
+        <div class="subsection">
+            <h3>1.5 Histórico Anterior com a Comp</h3>
+            <div>[Não mencionado]</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🔥 2. Principais Dores</h2>
+        <div class='pain-box'><h4>Pain 1 - Gestão Manual e Não Padronizada</h4><ul><li><strong>Descrição:</strong> Processos manuais e não estruturados</li><li><strong>Onde aparece:</strong> Gestão diária de pessoas e decisões</li><li><strong>Impacto percebido:</strong> Ineficiência operacional e falta de escalabilidade</li></ul></div><div class='pain-box'><h4>Pain 2 - Dependência de Pessoas vs Processos</h4><ul><li><strong>Descrição:</strong> Decisões baseadas em feeling e não em dados</li><li><strong>Onde aparece:</strong> Promoções, contratações e gestão</li><li><strong>Impacto percebido:</strong> Falta de padronização e escalabilidade</li></ul></div>
+    </div>
+
+    <div class="section">
+        <h2>💎 3. Hipótese de Valor Inicial</h2>
+
+        <h4>Que tipo de problema de People / Rewards isso parece ser?</h4>
+        <p>Compensation Governance e Estruturação de RH</p>
+
+        <h4>Onde acreditamos que está o maior impacto?</h4>
+        <ul><li>Automatização de processos de RH</li><li>Estruturação da governança de remuneração</li><li>Padronização de decisões de pessoas</li></ul>
+    </div>
+
+    <div class="section">
+        <h2>📋 4. O Que Sabemos</h2>
+        <ul>
+            <li><strong>Estrutura / níveis:</strong> Base da pirâmide, maioria ganha até R$3.000</li>
+            <li><strong>Pay decisions:</strong> Não estruturado, baseado em decisões ad hoc</li>
+            <li><strong>Benchmarking:</strong> Se compara com Sodexo, GPS e empresas de facilities</li>
+            <li><strong>Posicionamento Estratégico:</strong> Busca equilíbrio entre mercado bancário e banqueiro</li>
+            <li><strong>Variável / incentivos:</strong> Apenas comercial tem variável, sem metas estruturadas</li>
+            <li><strong>Ferramentas / vendors:</strong> BPO de RH para processos administrativos</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>❓ 5. Perguntas Para SAL</h2>
+
+        <div class="question-box">
+            <h4>🔍 O que ainda não sabemos e é crítico?</h4>
+            <ul><li>Qual o orçamento disponível para investimento em RH?</li><li>Qual o timeline ideal para implementação?</li><li>Como está estruturado o BPO atual e quais processos específicos ele cobre?</li></ul>
+        </div>
+
+        <div class="question-box">
+            <h4>✅ O que precisa ser validado no deep discovery?</h4>
+            <ul><li>Validar escopo exato do HR as a Service vs Comp as a Service</li><li>Confirmar appetite para automatização total dos processos</li><li>Validar possibilidade de implementação em fases</li></ul>
+        </div>
+    </div>
+
+    <div class="next-steps">
+        <h2>🎯 6. Próximos Passos Recomendados</h2>
+        <ul>
+            <li><strong>Próxima call:</strong> SAL Discovery & Deepening</li>
+        </ul>
+        <div>
+            <p>Cliente demonstrou forte interesse e fit com solução de HR as a Service, necessitando aprofundamento do escopo.</p><ul><li>Agendar SAL com foco em HR as a Service (já agendado para quinta-feira)</li><li>Preparar demo específica de automatizações</li><li>Mapear processos atuais do BPO para proposta de transição</li></ul>
+        </div>
+    </div>
+</body>
+</html>
