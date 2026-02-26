@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAL Briefing - Juntos Somos Mais</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+            background: #fafafa;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 48px;
+            font-weight: 900;
+            color: #FF4757;
+            letter-spacing: -2px;
+        }
+        .header {
+            background: white;
+            border-left: 5px solid #FF4757;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: #FF4757;
+            margin: 0 0 10px 0;
+            font-size: 32px;
+        }
+        .header p {
+            margin: 5px 0;
+            color: #666;
+            font-size: 14px;
+        }
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .section p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        h2 {
+            color: #FF4757;
+            border-bottom: 2px solid #FF4757;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 24px;
+        }
+        h3 {
+            color: #FF4757;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        h4 {
+            color: #34495e;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .subsection {
+            margin-left: 20px;
+            margin-top: 12px;
+        }
+        .subsection ul {
+            margin: 6px 0;
+        }
+        .subsection li {
+            padding: 3px 0;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 8px 0;
+        }
+        li {
+            padding: 4px 0;
+            border-bottom: 1px solid #ecf0f1;
+            line-height: 1.5;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        strong {
+            color: #2c3e50;
+        }
+        .pain-box {
+            background: #fff5f5;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #FF4757;
+        }
+        .pain-box h4 {
+            margin: 0 0 6px 0;
+            color: #FF4757;
+        }
+        .pain-box ul {
+            margin: 4px 0;
+        }
+        .pain-box li {
+            padding: 3px 0;
+        }
+        .next-steps {
+            background: #e8f5e9;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #4caf50;
+        }
+        .next-steps h2 {
+            border-bottom: 2px solid #4caf50;
+            color: #4caf50;
+        }
+        .next-steps ul {
+            margin: 8px 0;
+        }
+        .next-steps li {
+            padding: 4px 0;
+            line-height: 1.5;
+        }
+        .next-steps p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        .next-steps div {
+            margin-top: 8px;
+        }
+        .next-steps strong {
+            display: inline;
+        }
+        .news-item {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 8px 0;
+            border-left: 3px solid #FF4757;
+        }
+        .news-item a {
+            color: #FF4757;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .news-item a:hover {
+            text-decoration: underline;
+        }
+        .hierarchy {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 8px 0;
+        }
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .org-level {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .org-box {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px 20px;
+            min-width: 180px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .org-box:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .org-box.stakeholder {
+            background: #fff5f5;
+            border: 3px solid #FF4757;
+            box-shadow: 0 4px 12px rgba(255,71,87,0.2);
+        }
+        .org-box .title {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        .org-box.stakeholder .title {
+            color: #FF4757;
+        }
+        .org-box .name {
+            font-size: 13px;
+            color: #666;
+            font-style: italic;
+        }
+        .org-connector {
+            width: 2px;
+            height: 20px;
+            background: #e0e0e0;
+            margin: 0 auto;
+        }
+        .org-badge {
+            display: inline-block;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            margin: 5px 2px 0 2px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .badge-mql {
+            background: #e3f2fd;
+            color: #1976d2;
+            border: 1px solid #1976d2;
+        }
+        .badge-sal {
+            background: #e8f5e9;
+            color: #388e3c;
+            border: 1px solid #388e3c;
+        }
+        .org-legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+        .legend-badge {
+            display: inline-block;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .question-box {
+            background: #fff9f0;
+            border-left: 4px solid #FF4757;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .question-box h4 {
+            color: #FF4757;
+            margin: 0 0 6px 0;
+            font-size: 16px;
+        }
+        .question-box ul {
+            margin: 0;
+            padding-left: 12px;
+            list-style: disc;
+        }
+        .question-box li {
+            padding: 2px 0;
+            border-bottom: none;
+            color: #555;
+            line-height: 1.4;
+        }
+        .question-box li strong {
+            display: inline;
+        }
+        .empty-field {
+            color: #999;
+            font-style: italic;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ecf0f1;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        comp
+    </div>
+
+    <div class="header">
+        <h1>SAL Briefing: Comp <> Juntos Somos Mais</h1>
+        <p><strong>Objetivo:</strong> Garantir que o SAL comece com clareza, não do zero</p>
+        <p><strong>Owner:</strong> BDR (entrega) → Sales Exec (valida)</p>
+    </div>
+
+    <div class="section">
+        <h2>🏢 1. Contexto Geral Empresa</h2>
+
+        <ul>
+            <li><strong>Segmento de Mercado:</strong> Tecnologia - Programa de Fidelidade (Loyalty)</li>
+            <li><strong>Modelo de Negócio:</strong> Plataforma de fidelização e benefícios B2B</li>
+        </ul>
+
+        <div class="subsection">
+            <h3>1.1 Dados Gerais Lead</h3>
+            <ul>
+                <li><strong>Quantidade de Colaboradores:</strong> 200 colaboradores (170 CLT + 30 estagiários)</li>
+                <li><strong>Modelo Contratação:</strong> CLT + Estagiários (alguns PJs pontuais: 2-3)</li>
+                <li><strong>Escritório/s:</strong> São Paulo</li>
+                <li><strong>Modelo de Trabalho:</strong> Remoto/Híbrido (1x por semana quinta-feira presencial)</li>
+                <li><strong>Source do Card:</strong> Outbound (referência de clientes: Nubank, Madeira Madeira, Joy Venture)</li>
+            </ul>
+        </div>
+
+        <div class="subsection">
+            <h3>1.2 Perguntas ICP</h3>
+            <ul>
+                <li><strong>Companhia Pretende Contratar:</strong> Não. Foco em produtividade, performance e retenção de talentos.</li>
+                <li><strong>Tem Vaga Aberta/Pretende Abrir em RH:</strong> Não</li>
+                <li><strong>Tem Time Tech (Eng/Dev):</strong> Sim. 100 colaboradores de tecnologia (CLT + estagiários), maioria da empresa</li>
+                <li><strong>Turnover Ano:</strong> 20% no time de tech (20 pessoas de 100), principalmente em cadeiras estratégicas de dados e engenharia</li>
+            </ul>
+        </div>
+
+        <div class="subsection">
+            <h3>1.3 Estrutura RH</h3>
+
+            <h4>Cargos:</h4>
+
+            <div class="org-legend">
+                <div class="legend-item">
+                    <span class="legend-badge badge-mql">MQL</span>
+                    <span>Participou do MQL</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-badge badge-sal">SAL</span>
+                    <span>Estará no SAL</span>
+                </div>
+            </div>
+
+            <div class="org-chart">
+                <div class="org-level">
+                    <div class="org-box">
+                        <div class="title">CFO</div>
+                        <div class="name">Eros</div>
+                    </div>
+                </div>
+                <div class="org-connector"></div>
+                <div class="org-level">
+                    <div class="org-box">
+                        <div class="title">Novo Diretor</div>
+                        <div class="name">Fernando Dutra (entrou semana passada)</div>
+                    </div>
+                </div>
+                <div class="org-connector"></div>
+                <div class="org-level">
+                    <div class="org-box">
+                        <div class="title">Gerente de RH</div>
+                        <div class="name">Felipe</div>
+                        <div><span class="org-badge badge-sal">SAL</span></div>
+                    </div>
+                </div>
+                <div class="org-connector"></div>
+                <div class="org-level">
+                    <div class="org-box">
+                        <div class="title">Coordenadora</div>
+                        <div class="name">(Não mencionado)</div>
+                    </div>
+                </div>
+                <div class="org-connector"></div>
+                <div class="org-level">
+                    <div class="org-box">
+                        <div class="title">Analista de Remuneração</div>
+                        <div class="name">Mirelli Gouveia</div>
+                        <div>
+                            <span class="org-badge badge-mql">MQL</span>
+                            <span class="org-badge badge-sal">SAL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h4>Stakeholders e Cargos:</h4>
+            <ul>
+                <li><strong>Mirelli Gouveia</strong> - Analista de Remuneração (L6+ Lead, operacional direto, histórico completo da área)</li>
+                <li><strong>Felipe</strong> - Gerente de RH (Influencer, atua em todas as áreas: Cultura, DHO, Talent Acquisition)</li>
+                <li><strong>Eros</strong> - CFO (Economic Buyer, RH reporta para ele)</li>
+                <li><strong>Fernando Dutra</strong> - Novo Diretor (Possível influencer, entrou semana passada, estava como interino)</li>
+            </ul>
+
+            <h4>Subdivisões RH:</h4>
+            <ul>
+                <li><strong>Coordenadora:</strong> Operações (Remuneração, Folha, Benefícios) + provavelmente BP e Talent</li>
+                <li><strong>Gerência (Felipe):</strong> Cultura, DHO, Talent Acquisition</li>
+                <li><strong>Em reestruturação:</strong> Talent e BP provavelmente vindo para coordenadora</li>
+            </ul>
+        </div>
+
+        <div class="subsection">
+            <h3>1.4 Principais Notícias</h3>
+            <div class="news-item">
+                <strong>Mudanças de Gestão Recentes:</strong> Fernando Dutra entrou como novo diretor semana passada (antes estava como interino)
+            </div>
+            <div class="news-item">
+                <strong>Venda de Braço do Negócio:</strong> Venderam um braço da Juntos Somos Mais para Madeira Madeira
+            </div>
+            <div class="news-item">
+                <strong>Nova Estratégia de Remuneração 2025:</strong> Foco em remuneração voltada para pessoal de tecnologia
+            </div>
+        </div>
+
+        <div class="subsection">
+            <h3>1.5 Histórico Anterior com a Comp</h3>
+            <div>
+                <p><strong>2022/2023:</strong> Comp entrou em contato para coleta de dados de pesquisa salarial. Na época não fez sentido para a empresa participar. Perderam contato.</p>
+                <p><strong>2025:</strong> Retomaram contato via referências de clientes (Nubank, Madeira Madeira, Joy Venture) que fizeram benchmarks e recomendaram a Comp. Fábio da Enjoy mostrou a plataforma Comp e provocou interesse.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🔥 2. Principais Dores</h2>
+
+        <div class="pain-box">
+            <h4>Pain 1: Turnover Alto em Tech (Crítico)</h4>
+            <ul>
+                <li><strong>Descrição:</strong> Perda de 20 pessoas no time de tech (20% de turnover) no último ano, principalmente em cadeiras estratégicas de dados e engenharia</li>
+                <li><strong>Onde aparece:</strong> Time de tecnologia (100 pessoas), coordenadores e gerências</li>
+                <li><strong>Impacto percebido:</strong> Dificuldade de reter e atrair talentos tech devido ao mercado aquecido. Turnover de 20% é "um pouquinho alto" para um time de 100 pessoas, especialmente em cadeiras estratégicas</li>
+            </ul>
+        </div>
+
+        <div class="pain-box">
+            <h4>Pain 2: Benchmarking Inadequado para Tech</h4>
+            <ul>
+                <li><strong>Descrição:</strong> Mercer muito robusta, voltada para indústria e grupos maiores. Não atende demandas específicas de cargos tech. Poucas amostras em dados, engenharia e produto. Estudos genéricos.</li>
+                <li><strong>Onde aparece:</strong> Área de Remuneração (Mirelli + Coordenadora), decisões de pay para tech</li>
+                <li><strong>Impacto percebido:</strong> Dificuldade de trazer Mercer para realidade da empresa. Não conseguem se orientar em casos que precisam estruturar. Falta de apoio significativo nos estudos.</li>
+            </ul>
+        </div>
+
+        <div class="pain-box">
+            <h4>Pain 3: Estrutura Arcaica e Inflexível</h4>
+            <ul>
+                <li><strong>Descrição:</strong> Metodologia da Talvers migrada para Mercer, mas continua "fora do contexto" e "realidade" da empresa. Gostariam de mudar para algo mais flexível.</li>
+                <li><strong>Onde aparece:</strong> Estrutura de cargos e níveis, arquitetura de cargos e salários, descrição de cargos</li>
+                <li><strong>Impacto percebido:</strong> Mantiveram estrutura antiga para "não mexer", mas não está funcionando. Precisam de apoio, não só estudos genéricos.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>💎 3. Hipótese de Valor Inicial</h2>
+
+        <h4>Que tipo de problema de People / Rewards isso parece ser?</h4>
+        <p><strong>Retenção de tech + Compensação market-competitive + Estrutura de níveis flexível</strong></p>
+        <p>Pain primário: Turnover de 20% em tech driblando posicionamento agressivo (75th) mas com benchmarking genérico (Mercer) + estrutura arcaica que não permite ajustes ágeis.</p>
+
+        <h4>Onde acreditamos que está o maior impacto?</h4>
+        <ul>
+            <li><strong>Redução de turnover crítico em tech:</strong> Com benchmarking tech-focused + estrutura flexível, conseguir reter coordenadores e gerências em dados/engenharia. Impacto: reduzir de 20% para ~10% turnover = 10 pessoas retidas/ano.</li>
+            <li><strong>Velocidade e confiança em pay decisions:</strong> Substituir Mercer genérica por dados tech-focused + metodologia work level permite Mirelli e coordenadora tomarem decisões rápidas e baseadas em realidade do mercado tech.</li>
+            <li><strong>Desbloqueio de competitividade tech vs. admin:</strong> Hoje pagam 75th para tech mas com dados genéricos. Com Comp, conseguem validar se 75th é suficiente para competir com Nubank, Uber, Mercado Livre (painel desejado).</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📋 4. O Que Sabemos</h2>
+        <ul>
+            <li><strong>Estrutura / níveis:</strong> Metodologia Talvers migrada para Mercer. Amplitude de 120% para todos (júnior a diretor executivo). Querem mudar para algo mais flexível e adaptável.</li>
+            <li><strong>Pay decisions:</strong> Duas tabelas: (1) Administrativo/cross = mediana, (2) Tech = 75th percentil. Decisões tomadas por Mirelli + Coordenadora + Felipe, com aprovação do CFO Eros.</li>
+            <li><strong>Benchmarking:</strong> Mercer para administrativo + Mercer Digital para tech. Diretoria usa Corning Ferry. Mix de metodologias gerando "salada mista" este ano. Algumas tabelas congeladas por estarem muito abaixo.</li>
+            <li><strong>Posicionamento Estratégico:</strong> Mediana para áreas cross (sem dificuldade de reter/atrair). 75th para tech (mas ainda assim perdendo 20% ao ano).</li>
+            <li><strong>Variável / incentivos:</strong> Remuneração variável para todos (júnior a diretor), transparente e ok. ILP implementado este ano (3 em 3 anos para executivos, primeiro payout 2029). ILP ainda não validado, pode precisar de revisão.</li>
+            <li><strong>Ferramentas / vendors:</strong> Mercer (administrativo), Mercer Digital (tech), Corning Ferry (diretoria). Participam da pesquisa salarial Mercer.</li>
+        </ul>
+
+        <h4>Painel de Comparação Desejado:</h4>
+        <ul>
+            <li>Empresas de tecnologia: Nubank, Uber, Madeira Madeira (concorrente), Mercado Livre</li>
+            <li>Empresas de fidelização/loyalty: Programas de fidelização em geral</li>
+            <li>Não segmentam por tamanho (comparam com Nubank apesar de ser gigante)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>❓ 5. Perguntas Para SAL</h2>
+
+        <div class="question-box">
+            <h4>🔍 O que ainda não sabemos e é crítico?</h4>
+            <ul>
+                <li><strong>Orçamento:</strong> Mirelli mencionou que "a única coisa que barra aqui para a gente é mais a questão de orçamento". Qual o budget disponível? Já aprovado ou precisa construir business case?</li>
+                <li><strong>Dor prioritária:</strong> Turnover, benchmarking ou estrutura? Ou os três simultaneamente? Qual é o burning pain que justifica investimento agora?</li>
+                <li><strong>Aprovação C-level:</strong> Além do Eros (CFO), Fernando Dutra (novo diretor) precisa aprovar? Qual o papel dele na decisão?</li>
+                <li><strong>Timeline:</strong> Quando precisam ter solução implementada? Há urgência específica (ex: ciclo de mérito, budget planning)?</li>
+                <li><strong>Tentativas anteriores:</strong> O que já fizeram para reter tech além de pagar 75th? Exit interviews apontam o quê? (apenas salário ou outros fatores?)</li>
+            </ul>
+        </div>
+
+        <div class="question-box">
+            <h4>✅ O que precisa ser validado no deep discovery?</h4>
+            <ul>
+                <li><strong>Apetite para implementação:</strong> Querem apoio operacional contínuo (CAS) ou projeto pontual de estruturação + handoff?</li>
+                <li><strong>ILP:</strong> Está ok ou precisa de revisão? Qual o desenho atual? Alinhado com mercado?</li>
+                <li><strong>Mix Mercer + Corning Ferry:</strong> Por que diretoria usa Corning Ferry e demais Mercer? Essa separação faz sentido ou gera mais complexidade?</li>
+                <li><strong>Capacidade de Mirelli:</strong> Ela sozinha (+ coordenadora) consegue tocar implementação ou precisam de suporte hands-on da Comp?</li>
+                <li><strong>Migração de vendor:</strong> Estão dispostos a migrar 100% para Comp ou querem manter Mercer e adicionar Comp?</li>
+                <li><strong>Posicionamento 75th:</strong> É suficiente para competir com painel desejado (Nubank, Uber, ML)? Validar se dor é posicionamento ou qualidade dos dados.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="next-steps">
+        <h2>🎯 6. Próximos Passos Recomendados</h2>
+        <ul>
+            <li><strong>Próxima call:</strong> SAL Discovery & Deepening - 06/03/2026 às 14h (sexta-feira)</li>
+        </ul>
+        <div>
+            <p><strong>☑ SAL Discovery & Deepening</strong></p>
+            <p><strong>Justificativa:</strong> Empresa está "comprada" na necessidade (Mirelli: "a gente vê a necessidade de vocês aqui no nosso negócio"), mas há barreira de orçamento. Precisamos:</p>
+            <ul>
+                <li>Aprofundar diagnóstico com Felipe (gerente) e idealmente Eros (CFO) ou Fernando (diretor)</li>
+                <li>Quantificar impacto do turnover de 20% em tech (custo de substituição, perda de produtividade)</li>
+                <li>Validar scope prioritário: turnover > benchmarking > estrutura</li>
+                <li>Construir business case para justificar investimento em Comp</li>
+                <li>Apresentar cases de sucesso de clientes similares (tech-heavy, mesmo pain)</li>
+                <li>Definir se querem substituir Mercer ou adicionar Comp</li>
+            </ul>
+
+            <p><strong>Participantes confirmados:</strong> Mirelli Gouveia (Analista), Felipe (Gerente)</p>
+            <p><strong>A confirmar:</strong> Eros (CFO - Economic Buyer), Fernando Dutra (Novo Diretor)</p>
+        </div>
+    </div>
+</body>
+</html>
