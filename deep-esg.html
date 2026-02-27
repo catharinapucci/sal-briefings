@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAL Briefing - Deep ESG</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+            background: #fafafa;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 48px;
+            font-weight: 900;
+            color: #FF4757;
+            letter-spacing: -2px;
+        }
+        .header {
+            background: white;
+            border-left: 5px solid #FF4757;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: #FF4757;
+            margin: 0 0 10px 0;
+            font-size: 32px;
+        }
+        .header p {
+            margin: 5px 0;
+            color: #666;
+            font-size: 14px;
+        }
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .section p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        h2 {
+            color: #FF4757;
+            border-bottom: 2px solid #FF4757;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 24px;
+        }
+        h3 {
+            color: #FF4757;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        h4 {
+            color: #34495e;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .subsection {
+            margin-left: 20px;
+            margin-top: 12px;
+        }
+        .subsection ul {
+            margin: 6px 0;
+        }
+        .subsection li {
+            padding: 3px 0;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 8px 0;
+        }
+        li {
+            padding: 4px 0;
+            border-bottom: 1px solid #ecf0f1;
+            line-height: 1.5;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        strong {
+            color: #2c3e50;
+        }
+        .pain-box {
+            background: #fff5f5;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #FF4757;
+        }
+        .pain-box h4 {
+            margin: 0 0 6px 0;
+            color: #FF4757;
+        }
+        .pain-box ul {
+            margin: 4px 0;
+        }
+        .pain-box li {
+            padding: 3px 0;
+        }
+        .next-steps {
+            background: #e8f5e9;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #4caf50;
+        }
+        .next-steps h2 {
+            border-bottom: 2px solid #4caf50;
+            color: #4caf50;
+        }
+        .next-steps ul {
+            margin: 8px 0;
+        }
+        .next-steps li {
+            padding: 4px 0;
+            line-height: 1.5;
+        }
+        .next-steps p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        .next-steps div {
+            margin-top: 8px;
+        }
+        .next-steps strong {
+            display: inline;
+        }
+        .news-item {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 8px 0;
+            border-left: 3px solid #FF4757;
+        }
+        .news-item a {
+            color: #FF4757;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .news-item a:hover {
+            text-decoration: underline;
+        }
+        .hierarchy {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 8px 0;
+        }
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .org-level {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .org-box {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px 20px;
+            min-width: 180px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .org-box:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .org-box .title {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        .org-box .name {
+            font-size: 13px;
+            color: #666;
+            font-style: italic;
+        }
+        .org-connector {
+            width: 2px;
+            height: 20px;
+            background: #e0e0e0;
+            margin: 0 auto;
+        }
+        .org-badge {
+            display: inline-block;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            margin: 5px 2px 0 2px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .badge-mql {
+            background: #e3f2fd;
+            color: #1976d2;
+            border: 1px solid #1976d2;
+        }
+        .badge-sal {
+            background: #e8f5e9;
+            color: #388e3c;
+            border: 1px solid #388e3c;
+        }
+        .org-legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+        .legend-badge {
+            display: inline-block;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .question-box {
+            background: #fff9f0;
+            border-left: 4px solid #FF4757;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .question-box h4 {
+            color: #FF4757;
+            margin: 0 0 6px 0;
+            font-size: 16px;
+        }
+        .question-box ul {
+            margin: 0;
+            padding-left: 12px;
+            list-style: disc;
+        }
+        .question-box li {
+            padding: 2px 0;
+            border-bottom: none;
+            color: #555;
+            line-height: 1.4;
+        }
+        .question-box li strong {
+            display: inline;
+        }
+        .empty-field {
+            color: #999;
+            font-style: italic;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ecf0f1;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        comp
+    </div>
+
+    <div class="header">
+        <h1>SAL Briefing: Comp <> Deep ESG</h1>
+        <p><strong>Objetivo:</strong> Garantir que o SAL comece com clareza, não do zero</p>
+        <p><strong>Owner:</strong> BDR (entrega) → Sales Exec (valida)</p>
+    </div>
+
+    <div class="section">
+        <h2>🏢 1. Contexto Geral Empresa</h2>
+
+        <ul>
+            <li><strong>Segmento de Mercado:</strong> Tecnologia - SaaS B2B (ESG/Sustentabilidade)</li>
+            <li><strong>Modelo de Negócio:</strong> SaaS B2B (Plataforma de ESG)</li>
+        </ul>
+
+        <div class="subsection">
+            <h3>1.1 Dados Gerais Lead</h3>
+            <ul>
+                <li><strong>Quantidade de Colaboradores:</strong> 100 colaboradores</li>
+                <li><strong>Modelo Contratação:</strong> Mix (94 PJ, 6 CLT)</li>
+                <li><strong>Escritório/s:</strong> Sem escritório físico, encontros ocasionais em coworkings</li>
+                <li><strong>Modelo de Trabalho:</strong> Remoto (com time comercial em campo)</li>
+                <li><strong>Source do Card:</strong> Inbound - CEO viu Series A da Comp</li>
+            </ul>
+        </div>
+
+        <div class="subsection">
+            <h3>1.2 Perguntas ICP</h3>
+            <ul>
+                <li><strong>Companhia Pretende Contratar:</strong> Redução de headcount planejada (-5.67% YoY)</li>
+                <li><strong>Tem Vaga Aberta/Pretende Abrir em RH:</strong> Não há vagas abertas em RH</li>
+                <li><strong>Tem Time Tech (Eng/Dev):</strong> Sim, 44 pessoas no time de tecnologia</li>
+                <li><strong>Turnover Ano:</strong> [Não mencionado]</li>
+            </ul>
+        </div>
+
+        <div class="subsection">
+            <h3>1.3 Estrutura RH</h3>
+
+            <h4>Cargos:</h4>
+
+            <div class="org-legend">
+                <div class="legend-item">
+                    <span class="legend-badge badge-mql">MQL</span>
+                    <span>Participou do MQL</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-badge badge-sal">SAL</span>
+                    <span>Estará no SAL</span>
+                </div>
+            </div>
+
+            <div class='org-legend'><div class='legend-item'><span class='legend-badge badge-mql'>MQL</span><span>Participou do MQL</span></div><div class='legend-item'><span class='legend-badge badge-sal'>SAL</span><span>Estará no SAL</span></div></div><div class='org-chart'><div class='org-level'><div class='org-box'><div class='title'>CEO</div><div class='name'>[Nome não mencionado]</div><span class='org-badge badge-sal'>SAL</span></div></div><div class='org-connector'></div><div class='org-level'><div class='org-box'><div class='title'>Head de RH</div><div class='name'>Camila Imamura</div><span class='org-badge badge-mql'>MQL</span></div></div><div class='org-connector'></div><div class='org-level'><div class='org-box'><div class='title'>Analista de Ops</div><div class='name'>[Nome não mencionado]</div></div><div class='org-box'><div class='title'>Talent Acquisition</div><div class='name'>[Nome não mencionado]</div></div></div></div>
+
+            <h4>Stakeholders e Cargos:</h4>
+            <ul>
+                <li><strong>Camila Imamura</strong> - Head de RH - Principal stakeholder, responsável pela área de People</li><li><strong>CEO</strong> - Decision maker, interessado após ver Series A da Comp</li>
+            </ul>
+
+            <h4>Subdivisões RH:</h4>
+            <ul>
+                <li>People Operations - Responsável por dados de pessoas, processos, contratos, folha</li><li>Talent Acquisition - Foco em recrutamento e seleção</li>
+            </ul>
+        </div>
+
+        <div class="subsection">
+            <h3>1.4 Principais Notícias</h3>
+            [Não mencionado]
+        </div>
+
+        <div class="subsection">
+            <h3>1.5 Histórico Anterior com a Comp</h3>
+            <div>Conversa anterior em outubro/novembro sobre cargos e salários</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🔥 2. Principais Dores</h2>
+        <div class='pain-box'><h4>Pain 1 - Estrutura Salarial Inconsistente</h4><ul><li><strong>Descrição:</strong> Tabela salarial atual é 'bizarramente ridícula', sem estrutura clara. Decisões são baseadas em pretensões salariais individuais sem governança</li><li><strong>Onde aparece:</strong> Toda a organização (100 pessoas)</li><li><strong>Impacto percebido:</strong> Falta de atratividade de mercado, decisões arbitrárias de aumentos ('dois mil reais porque está indo bem'), sem norte estratégico</li></ul></div><div class='pain-box'><h4>Pain 2 - Sistemas Fragmentados e Operacionais</h4><ul><li><strong>Descrição:</strong> Múltiplos sistemas (ATS, sistema de gestão, LinkedIn) sem integração efetiva. Time precisa atuar muito operacionalmente nas ferramentas</li><li><strong>Onde aparece:</strong> Time de RH (3 pessoas)</li><li><strong>Impacto percebido:</strong> Impossibilidade de escalar operação com time enxuto para potenciais 1000 pessoas</li></ul></div><div class='pain-box'><h4>Pain 3 - Falta de Governança em Levels</h4><ul><li><strong>Descrição:</strong> Tentativa frustrada de implementar sistema de levels há 1 ano. Definições de responsabilidades feitas mas não implementadas</li><li><strong>Onde aparece:</strong> Gestão de carreira e remuneração</li><li><strong>Impacto percebido:</strong> Falta de critérios claros para promoções e aumentos</li></ul></div><div class='pain-box'><h4>Pain 4 - Complexidade na Gestão PJ vs CLT</h4><ul><li><strong>Descrição:</strong> Gestão de dois regimes (94 PJ, 6 CLT) com políticas diferentes (ex: férias de 30 dias CLT vs 50 dias PJ)</li><li><strong>Onde aparece:</strong> Administração de pessoas e benefícios</li><li><strong>Impacto percebido:</strong> Dificuldade em padronizar e automatizar processos</li></ul></div>
+    </div>
+
+    <div class="section">
+        <h2>💎 3. Hipótese de Valor Inicial</h2>
+
+        <h4>Que tipo de problema de People / Rewards isso parece ser?</h4>
+        <p>Compensation governance & benchmarking + Job architecture & leveling</p>
+
+        <h4>Onde acreditamos que está o maior impacto?</h4>
+        <ul><li>Estruturação de levels e carreira: Implementação do trabalho já iniciado de definição de responsabilidades</li><li>Automação de processos: Redução da carga operacional do time enxuto de RH</li><li>Governança salarial: Estabelecimento de critérios claros para decisões de remuneração</li><li>Gestão unificada: Integração de dados e processos em uma única plataforma</li></ul>
+    </div>
+
+    <div class="section">
+        <h2>📋 4. O Que Sabemos</h2>
+        <ul>
+            <li><strong>Estrutura / níveis:</strong> Tentativa inicial de implementação de levels sem sucesso</li>
+            <li><strong>Pay decisions:</strong> Baseadas em pretensão salarial e decisões ad hoc de liderança</li>
+            <li><strong>Benchmarking:</strong> Múltiplas fontes (Robert Half, Airshing, network)</li>
+            <li><strong>Posicionamento Estratégico:</strong> Abaixo do mercado, sem competitividade em benefícios</li>
+            <li><strong>Variável / incentivos:</strong> [Não mencionado]</li>
+            <li><strong>Ferramentas / vendors:</strong> ASAS (HRIS), InHire (ATS), LinkedIn Recruiter (considerando)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>❓ 5. Perguntas Para SAL</h2>
+
+        <div class="question-box">
+            <h4>🔍 O que ainda não sabemos e é crítico?</h4>
+            <ul><li>Qual o budget disponível para investimento em tecnologia/consultoria de RH?</li><li>Quais são os KPIs específicos de eficiência que precisam ser atingidos?</li><li>Como é o processo de aprovação/implementação de novas ferramentas?</li><li>Qual o timeline ideal para transição de sistemas?</li><li>Quais funcionalidades específicas do sistema atual são críticas e precisam ser mantidas?</li></ul>
+        </div>
+
+        <div class="question-box">
+            <h4>✅ O que precisa ser validado no deep discovery?</h4>
+            <ul><li>Validar se CEO realmente comprará ideia de investimento maior para ter solução mais robusta</li><li>Confirmar se time está realmente preparado para mudança de sistemas</li><li>Verificar se há outras iniciativas de estruturação em andamento que podem impactar o projeto</li><li>Confirmar priorização entre diferentes dores (remuneração vs. operacional)</li></ul>
+        </div>
+    </div>
+
+    <div class="next-steps">
+        <h2>🎯 6. Próximos Passos Recomendados</h2>
+        <ul>
+            <li><strong>Próxima call:</strong> SAL Discovery & Deepening</li>
+        </ul>
+        <div>
+            <p><strong>Por que essa recomendação:</strong> Prospect demonstra dores claras e urgência, mas ainda há gaps importantes de entendimento sobre prioridades e capacidade de investimento</p><ul><li><strong>Abordagem recomendada:</strong> Focar próxima conversa em validar prioridades entre estruturação de remuneração vs. automação operacional. Trazer cases específicos de empresas que fizeram transição similar de sistemas mantendo operação</li><li><strong>Pontos de atenção:</strong> CEO parece muito sensível a custos - necessário preparar argumentação clara de ROI. Time pequeno pode ter limitações para implementação</li><li><strong>Posicionamento de valor:</strong> Enfatizar capacidade de resolver múltiplas dores em uma única solução, reduzindo custos totais com vendors e aumentando eficiência do time enxuto. Destacar experiência com empresas em momento similar de estruturação</li></ul>
+        </div>
+    </div>
+</body>
+</html>
